@@ -108,7 +108,7 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
         let tempBodyString = NSString.init(data: data, encoding: String.Encoding.utf8.rawValue)
         self.requestBodyLength = data.count
         if (tempBodyString != nil) {
-            saveData(tempBodyString!, toFile: getRequestBodyFilepath())
+            saveData(tempBodyString!, toFile: getRequestBodyFilePath())
         }
     }
     
@@ -127,7 +127,7 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
         
         if (bodyString != nil) {
             self.responseBodyLength = data.count
-            saveData(bodyString!, toFile: getResponseBodyFilepath())
+            saveData(bodyString!, toFile: getResponseBodyFilePath())
         }
         
     }
@@ -145,7 +145,7 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
     @objc public func getRequestBody() -> NSString
     {
-        guard let data = readRawData(getRequestBodyFilepath()) else {
+        guard let data = readRawData(getRequestBodyFilePath()) else {
             return ""
         }
         return prettyOutput(data, contentType: requestType)
@@ -153,7 +153,7 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     
     @objc public func getResponseBody() -> NSString
     {
-        guard let data = readRawData(getResponseBodyFilepath()) else {
+        guard let data = readRawData(getResponseBodyFilePath()) else {
             return ""
         }
         
@@ -168,7 +168,7 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
         return self.randomHash!
     }
     
-    @objc public func getRequestBodyFilepath() -> String
+    @objc public func getRequestBodyFilePath() -> String
     {
         let dir = getDocumentsPath() as NSString
         return dir.appendingPathComponent(getRequestBodyFilename())
@@ -179,7 +179,7 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
         return String("nfx_request_body_") + "\(self.requestTime!)_\(getRandomHash() as String)"
     }
     
-    @objc public func getResponseBodyFilepath() -> String
+    @objc public func getResponseBodyFilePath() -> String
     {
         let dir = getDocumentsPath() as NSString
         return dir.appendingPathComponent(getResponseBodyFilename())

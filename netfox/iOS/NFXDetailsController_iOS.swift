@@ -301,12 +301,12 @@ class NFXDetailsController_iOS: NFXDetailsController, MFMailComposeViewControlle
         tempString += "logged via netfox - [https://github.com/kasketis/netfox]\n"
 
         if full {
-            let requestFilePath = self.selectedModel.getRequestBodyFilepath()
+            let requestFilePath = self.selectedModel.getRequestBodyFilePath()
             if let requestFileData = try? String(contentsOf: URL(fileURLWithPath: requestFilePath as String), encoding: .utf8) {
                 tempString += requestFileData
             }
 
-            let responseFilePath = self.selectedModel.getResponseBodyFilepath()
+            let responseFilePath = self.selectedModel.getResponseBodyFilePath()
             if let responseFileData = try? String(contentsOf: URL(fileURLWithPath: responseFilePath as String), encoding: .utf8) {
                 tempString += responseFileData
             }
