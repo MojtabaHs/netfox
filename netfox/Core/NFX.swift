@@ -89,7 +89,7 @@ open class NFX: NSObject
         self.started = false
         showMessage("Stopped!")
     #if os(OSX)
-        self.removeNetfoxFromMainmenu()
+        self.removeNetfoxFromMainMenu()
     #endif
     }
     
@@ -143,7 +143,7 @@ open class NFX: NSObject
         if gesture == .shake {
             self.addNetfoxToMainMenu()
         } else {
-            self.removeNetfoxFromMainmenu()
+            self.removeNetfoxFromMainMenu()
         }
     #endif
     }
@@ -313,7 +313,7 @@ extension NFX {
         }
     }
     
-    public func removeNetfoxFromMainmenu() {
+    public func removeNetfoxFromMainMenu() {
         if let menu = self.mainMenu {
             menu.removeItem(self.nfxMenuItem)
         }
